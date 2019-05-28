@@ -1,13 +1,13 @@
-package com.evil.ibet_cloud;
+package com.evil.ibetcore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IbetCloudApplication {
+public class IbetCoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IbetCloudApplication.class, args);
+		SpringApplication.run(IbetCoreApplication.class, args);
 	}
 
 }

@@ -13,11 +13,18 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ibet_cloud</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
+
+	<modules>
+		<module>ibet-core</module>
+		<module>ibet-order</module>
+		<module>ibet-web</module>
+	</modules>
 
 	<dependencies>
 		<dependency>
