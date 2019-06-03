@@ -1,4 +1,4 @@
-package com.evil.ibetweb;
+package com.evil.ibeteureka;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IbetWebApplicationTests {
+public class IbetEurekaApplicationTests {
 
     @Test
     public void contextLoads() {
