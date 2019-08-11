@@ -1,4 +1,4 @@
-package com.evil.ibetcore;
+package com.evil.ibetbusi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
