@@ -1,3 +1,27 @@
 server:
   port: 8080
 
+spring:
+  application:
+    name: ibet-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: payment_routh #路由的id，要唯一，做好和服务名相关联
+          uri: http://localhost:8001 #匹配后提供服务的路由地址
+          predicates:
+            - Path=/payment/get/**  #断言，路径相匹配将进行路由
+        - id: payment_routh2
+          uri: http://localhost:8001
+          predicates:
+            - Path=/payment/create/**
+
+eureka:
+  instance:
+    hostname: ibet-gateway-service
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com/eureka
+      defaultZone: http://localhost:8001/eureka
