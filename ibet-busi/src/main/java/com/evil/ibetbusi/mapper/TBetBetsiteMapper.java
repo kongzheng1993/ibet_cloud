@@ -1,7 +1,9 @@
 package com.evil.ibetbusi.mapper;
 
 import com.evil.ibetbusi.domain.TBetBetsite;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface TBetBetsiteMapper {
     int deleteByPrimaryKey(Integer id);
 
