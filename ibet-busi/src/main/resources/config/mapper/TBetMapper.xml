@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evil.ibetbusi.mapper.TBetMapper">
+  <resultMap id="BaseResultMap" type="com.evil.ibetbusi.domain.TBet">
+    <!--@mbg.generated-->
+    <!--@Table t_bet-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="redballrange" jdbcType="INTEGER" property="redballrange" />
+    <result column="blueballrange" jdbcType="INTEGER" property="blueballrange" />
+    <result column="picname" jdbcType="VARCHAR" property="picname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, redballrange, blueballrange, picname
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_bet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_bet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TBet" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_bet (`name`, redballrange, blueballrange, 
+      picname)
+    values (#{name,jdbcType=VARCHAR}, #{redballrange,jdbcType=INTEGER}, #{blueballrange,jdbcType=INTEGER}, 
+      #{picname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TBet" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_bet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="redballrange != null">
+        redballrange,
+      </if>
+      <if test="blueballrange != null">
+        blueballrange,
+      </if>
+      <if test="picname != null">
+        picname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="redballrange != null">
+        #{redballrange,jdbcType=INTEGER},
+      </if>
+      <if test="blueballrange != null">
+        #{blueballrange,jdbcType=INTEGER},
+      </if>
+      <if test="picname != null">
+        #{picname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.evil.ibetbusi.domain.TBet">
+    <!--@mbg.generated-->
+    update t_bet
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="redballrange != null">
+        redballrange = #{redballrange,jdbcType=INTEGER},
+      </if>
+      <if test="blueballrange != null">
+        blueballrange = #{blueballrange,jdbcType=INTEGER},
+      </if>
+      <if test="picname != null">
+        picname = #{picname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.evil.ibetbusi.domain.TBet">
+    <!--@mbg.generated-->
+    update t_bet
+    set `name` = #{name,jdbcType=VARCHAR},
+      redballrange = #{redballrange,jdbcType=INTEGER},
+      blueballrange = #{blueballrange,jdbcType=INTEGER},
+      picname = #{picname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

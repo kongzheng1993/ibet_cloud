@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evil.ibetbusi.mapper.TUserMapper">
+  <resultMap id="BaseResultMap" type="com.evil.ibetbusi.domain.TUser">
+    <!--@mbg.generated-->
+    <!--@Table t_user-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="wxopenid" jdbcType="VARCHAR" property="wxopenid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="wxnickname" jdbcType="VARCHAR" property="wxnickname" />
+    <result column="IDCardNo" jdbcType="VARCHAR" property="idcardno" />
+    <result column="phoneNo" jdbcType="VARCHAR" property="phoneno" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, wxopenid, username, wxnickname, IDCardNo, phoneNo, registertime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_user (wxopenid, username, wxnickname, 
+      IDCardNo, phoneNo, registertime
+      )
+    values (#{wxopenid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{wxnickname,jdbcType=VARCHAR}, 
+      #{idcardno,jdbcType=VARCHAR}, #{phoneno,jdbcType=VARCHAR}, #{registertime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wxopenid != null">
+        wxopenid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="wxnickname != null">
+        wxnickname,
+      </if>
+      <if test="idcardno != null">
+        IDCardNo,
+      </if>
+      <if test="phoneno != null">
+        phoneNo,
+      </if>
+      <if test="registertime != null">
+        registertime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wxopenid != null">
+        #{wxopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="wxnickname != null">
+        #{wxnickname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null">
+        #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneno != null">
+        #{phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.evil.ibetbusi.domain.TUser">
+    <!--@mbg.generated-->
+    update t_user
+    <set>
+      <if test="wxopenid != null">
+        wxopenid = #{wxopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="wxnickname != null">
+        wxnickname = #{wxnickname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null">
+        IDCardNo = #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneno != null">
+        phoneNo = #{phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null">
+        registertime = #{registertime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.evil.ibetbusi.domain.TUser">
+    <!--@mbg.generated-->
+    update t_user
+    set wxopenid = #{wxopenid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      wxnickname = #{wxnickname,jdbcType=VARCHAR},
+      IDCardNo = #{idcardno,jdbcType=VARCHAR},
+      phoneNo = #{phoneno,jdbcType=VARCHAR},
+      registertime = #{registertime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

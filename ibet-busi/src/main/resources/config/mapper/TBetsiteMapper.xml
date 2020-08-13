@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evil.ibetbusi.mapper.TBetsiteMapper">
+  <resultMap id="BaseResultMap" type="com.evil.ibetbusi.domain.TBetsite">
+    <!--@mbg.generated-->
+    <!--@Table t_betsite-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="master" jdbcType="VARCHAR" property="master" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="wxopneid" jdbcType="VARCHAR" property="wxopneid" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="betTypes" jdbcType="VARCHAR" property="bettypes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, master, username, `password`, wxopneid, registertime, betTypes
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_betsite
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_betsite
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TBetsite" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_betsite (`name`, master, username, 
+      `password`, wxopneid, registertime, 
+      betTypes)
+    values (#{name,jdbcType=VARCHAR}, #{master,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{wxopneid,jdbcType=VARCHAR}, #{registertime,jdbcType=TIMESTAMP}, 
+      #{bettypes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TBetsite" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_betsite
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="master != null">
+        master,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="wxopneid != null">
+        wxopneid,
+      </if>
+      <if test="registertime != null">
+        registertime,
+      </if>
+      <if test="bettypes != null">
+        betTypes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="master != null">
+        #{master,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="wxopneid != null">
+        #{wxopneid,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bettypes != null">
+        #{bettypes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.evil.ibetbusi.domain.TBetsite">
+    <!--@mbg.generated-->
+    update t_betsite
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="master != null">
+        master = #{master,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="wxopneid != null">
+        wxopneid = #{wxopneid,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null">
+        registertime = #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bettypes != null">
+        betTypes = #{bettypes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.evil.ibetbusi.domain.TBetsite">
+    <!--@mbg.generated-->
+    update t_betsite
+    set `name` = #{name,jdbcType=VARCHAR},
+      master = #{master,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      wxopneid = #{wxopneid,jdbcType=VARCHAR},
+      registertime = #{registertime,jdbcType=TIMESTAMP},
+      betTypes = #{bettypes,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

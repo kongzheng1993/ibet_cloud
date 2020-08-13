@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evil.ibetbusi.mapper.TOrderMapper">
+  <resultMap id="BaseResultMap" type="com.evil.ibetbusi.domain.TOrder">
+    <!--@mbg.generated-->
+    <!--@Table t_order-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="betsiteid" jdbcType="INTEGER" property="betsiteid" />
+    <result column="betid" jdbcType="INTEGER" property="betid" />
+    <result column="redballs" jdbcType="VARCHAR" property="redballs" />
+    <result column="blueballs" jdbcType="VARCHAR" property="blueballs" />
+    <result column="times" jdbcType="INTEGER" property="times" />
+    <result column="ordertime" jdbcType="TIMESTAMP" property="ordertime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, userid, betsiteid, betid, redballs, blueballs, times, ordertime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order (userid, betsiteid, betid, 
+      redballs, blueballs, times, 
+      ordertime)
+    values (#{userid,jdbcType=INTEGER}, #{betsiteid,jdbcType=INTEGER}, #{betid,jdbcType=INTEGER}, 
+      #{redballs,jdbcType=VARCHAR}, #{blueballs,jdbcType=VARCHAR}, #{times,jdbcType=INTEGER}, 
+      #{ordertime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="betsiteid != null">
+        betsiteid,
+      </if>
+      <if test="betid != null">
+        betid,
+      </if>
+      <if test="redballs != null">
+        redballs,
+      </if>
+      <if test="blueballs != null">
+        blueballs,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+      <if test="ordertime != null">
+        ordertime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="betsiteid != null">
+        #{betsiteid,jdbcType=INTEGER},
+      </if>
+      <if test="betid != null">
+        #{betid,jdbcType=INTEGER},
+      </if>
+      <if test="redballs != null">
+        #{redballs,jdbcType=VARCHAR},
+      </if>
+      <if test="blueballs != null">
+        #{blueballs,jdbcType=VARCHAR},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.evil.ibetbusi.domain.TOrder">
+    <!--@mbg.generated-->
+    update t_order
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="betsiteid != null">
+        betsiteid = #{betsiteid,jdbcType=INTEGER},
+      </if>
+      <if test="betid != null">
+        betid = #{betid,jdbcType=INTEGER},
+      </if>
+      <if test="redballs != null">
+        redballs = #{redballs,jdbcType=VARCHAR},
+      </if>
+      <if test="blueballs != null">
+        blueballs = #{blueballs,jdbcType=VARCHAR},
+      </if>
+      <if test="times != null">
+        times = #{times,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null">
+        ordertime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.evil.ibetbusi.domain.TOrder">
+    <!--@mbg.generated-->
+    update t_order
+    set userid = #{userid,jdbcType=INTEGER},
+      betsiteid = #{betsiteid,jdbcType=INTEGER},
+      betid = #{betid,jdbcType=INTEGER},
+      redballs = #{redballs,jdbcType=VARCHAR},
+      blueballs = #{blueballs,jdbcType=VARCHAR},
+      times = #{times,jdbcType=INTEGER},
+      ordertime = #{ordertime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

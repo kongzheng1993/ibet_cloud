@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evil.ibetbusi.mapper.TBetBetsiteMapper">
+  <resultMap id="BaseResultMap" type="com.evil.ibetbusi.domain.TBetBetsite">
+    <!--@mbg.generated-->
+    <!--@Table t_bet_betsite-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="betid" jdbcType="INTEGER" property="betid" />
+    <result column="betsiteid" jdbcType="INTEGER" property="betsiteid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, betid, betsiteid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_bet_betsite
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_bet_betsite
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TBetBetsite" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_bet_betsite (betid, betsiteid)
+    values (#{betid,jdbcType=INTEGER}, #{betsiteid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.evil.ibetbusi.domain.TBetBetsite" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_bet_betsite
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="betid != null">
+        betid,
+      </if>
+      <if test="betsiteid != null">
+        betsiteid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="betid != null">
+        #{betid,jdbcType=INTEGER},
+      </if>
+      <if test="betsiteid != null">
+        #{betsiteid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.evil.ibetbusi.domain.TBetBetsite">
+    <!--@mbg.generated-->
+    update t_bet_betsite
+    <set>
+      <if test="betid != null">
+        betid = #{betid,jdbcType=INTEGER},
+      </if>
+      <if test="betsiteid != null">
+        betsiteid = #{betsiteid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.evil.ibetbusi.domain.TBetBetsite">
+    <!--@mbg.generated-->
+    update t_bet_betsite
+    set betid = #{betid,jdbcType=INTEGER},
+      betsiteid = #{betsiteid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
